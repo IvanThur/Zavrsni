@@ -2,7 +2,7 @@ drop database if exists Rezije;
 create database Rezije;
 use Rezije;
 
-#c:\xampp\mysql\bin>mysql -ugoran –pgoran < c:\Rezije-Ivan.sql
+#c:\xampp\mysql\bin>mysql -uedunova -pedunova < c:\Rezije-Ivan.sql
 
 create table godina(
     sifra int not null primary key auto_increment,
