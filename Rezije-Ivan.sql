@@ -2,60 +2,41 @@ drop database if exists Rezije;
 create database Rezije;
 use Rezije;
 
-#c:\xampp\mysql\bin>mysql -uedunova -pedunova < c:\Rezije-Ivan.sql
+#D:\Program Files (x86)\xampp\mysql\bin>mysql -uedunova -pedunova < D:\Zavrsni-rad\Zavrsni-rad\Rezije-Ivan.sql
 
-create table godina(
+create table razhodi(
     sifra int not null primary key auto_increment,
-    godina int not null
-);
-
-create table vrsta(
-    sifra int not null primary key auto_increment,
-    naziv varchar(50)
-);
-
-create table VPS_rezije(
-    sifra int not null primary key auto_increment,
-    godina int not null,
-    vrsta int not null,
-    dat_od datetime,
-    dat_do datetime,
-    pocetak int,
-    kraj int,
+    naziv varchar(50) not null,
+    datum_placanja date,
+    platitelj int not null,
     kolicina int,
-    cijena decimal(18,2)
+    cijena int
 );
 
-create table telefon(
+create table prihodi(
     sifra int not null primary key auto_increment,
-    godina int not null,
-    mjesec int not null,
-    iznos decimal(18,2)
+    naziv varchar(50),
+    primatelj int not null,
+    iznos int
 );
 
-create table gorivo(
+create table osoba(
     sifra int not null primary key auto_increment,
-    godina int not null,
-    datum datetime,
-    litara decimal(5,2),
-    kilometara int,
-    cijena decimal(18,2)
+    ime varchar(50),
+    prezime varchar(50)
 );
 
 create table ukupno(
     sifra int not null primary key auto_increment,
-    godina int not null,
-    ukupno decimal(18,2)
+    cijena int not null,
+    iznos int not null,
+    ukupno int
 );
 
+alter table razhodi add foreign key (platitelj) references osoba(sifra);
 
-alter table VPS_rezije add foreign key (godina) references godina(sifra);
-alter table VPS_rezije add foreign key (vrsta) references vrsta(sifra);
+alter table prihodi add foreign key (primatelj) references osoba(sifra);
 
-alter table gorivo add foreign key (godina) references godina(sifra);
+alter table ukupno add foreign key (cijena) references razhodi(sifra);
 
-alter table ukupno add foreign key (godina) references godina(sifra);
-
-alter table telefon add foreign key (godina) references godina(sifra);
-
-
+alter table ukupno add foreign key (iznos) references prihodi(sifra);
