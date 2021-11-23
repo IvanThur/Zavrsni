@@ -9,15 +9,15 @@ create table razhodi(
     naziv varchar(50) not null,
     datum_placanja date,
     platitelj int not null,
-    kolicina int,
-    cijena int
+    kolicina decimal(6,2),
+    cijena decimal(18,2)
 );
 
 create table prihodi(
     sifra int not null primary key auto_increment,
     naziv varchar(50),
     primatelj int not null,
-    iznos int
+    iznos decimal(18,2)
 );
 
 create table osoba(
@@ -26,17 +26,6 @@ create table osoba(
     prezime varchar(50)
 );
 
-create table ukupno(
-    sifra int not null primary key auto_increment,
-    cijena int not null,
-    iznos int not null,
-    ukupno int
-);
-
 alter table razhodi add foreign key (platitelj) references osoba(sifra);
 
 alter table prihodi add foreign key (primatelj) references osoba(sifra);
-
-alter table ukupno add foreign key (cijena) references razhodi(sifra);
-
-alter table ukupno add foreign key (iznos) references prihodi(sifra);
