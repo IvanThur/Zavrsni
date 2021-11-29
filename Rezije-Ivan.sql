@@ -15,15 +15,15 @@ create table razhodi(
 
 create table prihodi(
     sifra int not null primary key auto_increment,
-    naziv varchar(50),
+    naziv varchar(50) not null,
     primatelj int not null,
     iznos decimal(18,2)
 );
 
-create table osoba(
+create table osobe(
     sifra int not null primary key auto_increment,
-    ime varchar(50),
-    prezime varchar(50)
+    ime varchar(50) not null, 
+    prezime varchar(50) not null
 );
 
 alter table razhodi add foreign key (platitelj) references osoba(sifra);
