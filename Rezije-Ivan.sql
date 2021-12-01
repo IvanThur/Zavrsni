@@ -4,9 +4,9 @@ use Rezije;
 
 #D:\Program Files (x86)\xampp\mysql\bin>mysql -uedunova -pedunova < D:\Zavrsni-rad\Zavrsni-rad\Rezije-Ivan.sql
 
-create table razhodi(
+create table rashodi(
     sifra int not null primary key auto_increment,
-    naziv varchar(50) not null,
+    naziv int not null,
     datum_placanja date,
     platitelj int not null,
     kolicina decimal(6,2),
@@ -15,7 +15,7 @@ create table razhodi(
 
 create table prihodi(
     sifra int not null primary key auto_increment,
-    naziv varchar(50) not null,
+    naziv int not null,
     primatelj int not null,
     iznos decimal(18,2)
 );
@@ -26,6 +26,13 @@ create table osobe(
     prezime varchar(50) not null
 );
 
-alter table razhodi add foreign key (platitelj) references osoba(sifra);
+create table vrste(
+    sifra int not null primary key auto_increment,
+    naziv varchar(50)
+);
 
-alter table prihodi add foreign key (primatelj) references osoba(sifra);
+alter table rashodi add foreign key (platitelj) references osobe(sifra);
+alter table prihodi add foreign key (primatelj) references osobe(sifra);
+
+alter table prihodi add foreign key (naziv) references vrste(sifra);
+alter table rashodi add foreign key (naziv) references vrste(sifra);
