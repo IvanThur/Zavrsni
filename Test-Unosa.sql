@@ -1,6 +1,6 @@
-select * from osoba;
+select * from osobe;
 
-insert into osoba(sifra,ime,prezime) values
+insert into osobe(sifra,ime,prezime) values
 (null,'Stjepan','Groznica'),
 (null,'Franko','Vekić'),
 (null,'Ivana','Cerovski'),
@@ -25,30 +25,46 @@ insert into osoba(sifra,ime,prezime) values
 (null,'Josip','Balog'),
 (null,'Matija','Skrletović');
 
-select * from razhodi;
+select * from rashodi;
 
-insert into razhodi(sifra,naziv,platitelj,cijena) values
-(null,'Gorivo',1,543.15),
-(null,'Struja',3,733.15),
-(null,'Plin',2,433.15),
-(null,'Hrana',5,633.15),
-(null,'Internet',6,133.15),
-(null,'Voda',8,233.15),
-(null,'Komunalac',9,233.15),
-(null,'HRT-Pretplata',1,83.15),
-(null,'Gorivo',2,433.15),
-(null,'Hrana',4,73.15);
+insert into rashodi(sifra,naziv,platitelj,cijena) values
+(null,1,1,543.15),
+(null,2,3,733.15),
+(null,3,2,433.15),
+(null,4,5,633.15),
+(null,5,6,133.15),
+(null,6,8,233.15),
+(null,7,9,233.15),
+(null,8,1,83.15),
+(null,1,2,433.15),
+(null,4,4,73.15);
 
 select * from prihodi;
 
 insert into prihodi(sifra,naziv,primatelj,iznos) values
-(null,'Plaća',1,6543.15),
-(null,'Peodaja luka',3,733.15),
-(null,'Prodaja lješnjaka',2,1433.15),
-(null,'Plaća',5,6363.15),
-(null,'Povrat poreza',6,533.15),
-(null,'Prodaja krumpira',8,233.15),
-(null,'Plaća',9,5233.15);
+(null,9,1,6543.15),
+(null,10,3,733.15),
+(null,11,2,1433.15),
+(null,9,5,6363.15),
+(null,12,6,533.15),
+(null,13,8,233.15),
+(null,9,9,5233.15);
 
+select * from vrste;
+
+insert into vrste(sifra,naziv) values
+(null,'Gorivo'),
+(null,'Struja'),
+(null,'Plin'),
+(null,'Hrana'),
+(null,'Internet'),
+(null,'Voda'),
+(null,'Komunalac'),
+(null,'HRT-Pretplata'),
+(null,'Plaća'),
+(null,'Prodaja luka'),
+(null,'Prodaja lješnjaka'),
+(null,'Povrat poreza'),
+(null,'Prodaja krumpira');
 
 
