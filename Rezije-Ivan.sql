@@ -17,6 +17,7 @@ create table prihodi(
     sifra int not null primary key auto_increment,
     naziv int not null,
     primatelj int not null,
+    datum_placanja date,
     iznos decimal(18,2)
 );
 
